@@ -5,4 +5,7 @@ export PATH=$PATH:/usr/bin
 docker pull bianca22a/simple-python-flask-app
 
 # Run the container
-docker run -d -p 5000:5000 bianca22a/simple-python-flask-app
+docker run -d -p 8000:5000 bianca22a/simple-python-flask-app
+
+
+
