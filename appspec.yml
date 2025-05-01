@@ -1,8 +1,15 @@
 version: 0.0
 os: linux
-
+files:
+  - source: /
+    destination: /opt/codedeploy-agent/deployment-root/deployment-archive
 hooks:
+  ApplicationStop:
+    - location: scripts/stop_container.sh
+      timeout: 30
+      runas: root
+
   AfterInstall:
     - location: scripts/start_container.sh
-      timeout: 300
+      timeout: 30
       runas: root
