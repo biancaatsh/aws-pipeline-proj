@@ -1,17 +1,9 @@
 #!/bin/bash
-set -e
-# Stop the running container (if avny)
-containerid=`docker ps | awk -F " " '{print 1}'`
-docker rm -f $containerid
+# Stop the running container by image name
+CONTAINER_ID=$(docker ps -q --filter ancestor=bianca22a/simple-python-flask-app)
 
-
-
-
-
-
-
-
-
-
-
-
+if [ -n "$CONTAINER_ID" ]; then
+  docker stop "$CONTAINER_ID"
+else
+  echo "No container found to stop"
+fi
